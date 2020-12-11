@@ -1,0 +1,19 @@
+<h2 class ="search-title"><%= @characters.count %> characters live in <%= @query %></h2>
+  <table>
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Allies</th>
+      <th>Enemies</th>
+      <th>Affliation</th>
+    </tr>
+  <% @characters.each do |character| %>
+    <tr class ='character'>
+      <td class = 'photo'><%= image_tag(character.photo_link, size: '100x90') if character.photo_link %></td>
+      <td class = 'name'><%= character.name %></td>
+      <td class ='allies'><%= character.allies.join(',') %></td>
+      <td class = 'enemies'><%= character.enemies.join(',') %></td>
+      <td class = 'affiliation'><%= character.affiliation %></td>
+    </tr>
+  <% end %>
+  </table>
